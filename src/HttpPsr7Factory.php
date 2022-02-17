@@ -39,7 +39,7 @@ class HttpPsr7Factory implements HttpPsr7FactoryInterface
     {
         $request = $this->serverRequestFactory->createServerRequest(
             $codeigniterRequest->getMethod(),
-            $codeigniterRequest->uri->getPath(),
+            $codeigniterRequest->getServer('app.baseURL').$codeigniterRequest->uri->getPath(),
             $codeigniterRequest->getServer()
         );
 
